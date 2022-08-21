@@ -6,6 +6,6 @@
     "outDir": "./lib",
     "strict": true
   },
-  "include": ["src", "src/__tests__"],
-  "exclude": ["node_modules", ".history/*"]
+  "include": ["src"],
+  "exclude": ["node_modules", "**/__tests__/*", ".history/*", ".history/**/*"]
 }

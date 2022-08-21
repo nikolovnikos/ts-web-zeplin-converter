@@ -1,21 +1,21 @@
 import { WithRequiredProperty, Properties, ZeplinStyle, WZeplinConverter } from '../index';
 
 interface StyleProps {
-  rectangleGreen: WithRequiredProperty<Properties, 'width' | 'height'>,
-  rectangleOrange: WithRequiredProperty<Properties, 'width' | 'height'>,
-  rectangleWhite:WithRequiredProperty<Properties, 'width' | 'height' | 'fontSize'>,
-  rectangleBigBlack:WithRequiredProperty<Properties, 'width' | 'height' | 'marginBottom'>,
-  rectanglesGray:WithRequiredProperty<Properties, 'width' | 'height'>,
-  rectangleDarkGray:WithRequiredProperty<Properties, 'width' | 'height'  | 'marginTop' | 'fontSize'>,
-  rectanglesColor:WithRequiredProperty<Properties, 'width' | 'paddingTop' | 'marginTop' | 'paddingBottom'>,
-  rectangleGray1:WithRequiredProperty<Properties, 'width' | 'fontSize' | 'paddingLeft' | 'paddingTop'>,
-  rectangleGray2:WithRequiredProperty<Properties, 'width'>,
-  rectangleCian: WithRequiredProperty<Properties, 'width' | 'height'>,
-  rectangleBlue:WithRequiredProperty<Properties, 'width' | 'height' | 'marginLeft' | 'marginRight'>,
-  rectanglePing: WithRequiredProperty<Properties, 'width' | 'height'>,
+  rectangleGreen: WithRequiredProperty<Properties, 'width' | 'height'>;
+  rectangleOrange: WithRequiredProperty<Properties, 'width' | 'height'>;
+  rectangleWhite: WithRequiredProperty<Properties, 'width' | 'height' | 'fontSize'>;
+  rectangleBigBlack: WithRequiredProperty<Properties, 'width' | 'height' | 'marginBottom'>;
+  rectanglesGray: WithRequiredProperty<Properties, 'width' | 'height'>;
+  rectangleDarkGray: WithRequiredProperty<Properties, 'width' | 'height' | 'marginTop' | 'fontSize'>;
+  rectanglesColor: WithRequiredProperty<Properties, 'width' | 'paddingTop' | 'marginTop' | 'paddingBottom'>;
+  rectangleGray1: WithRequiredProperty<Properties, 'width' | 'fontSize' | 'paddingLeft' | 'paddingTop'>;
+  rectangleGray2: WithRequiredProperty<Properties, 'width'>;
+  rectangleCian: WithRequiredProperty<Properties, 'width' | 'height'>;
+  rectangleBlue: WithRequiredProperty<Properties, 'width' | 'height' | 'marginLeft' | 'marginRight'>;
+  rectanglePing: WithRequiredProperty<Properties, 'width' | 'height'>;
 }
 
-export class LayoutScreenStyle extends ZeplinStyle <StyleProps> {
+export class LayoutScreenStyle extends ZeplinStyle<StyleProps> {
   setDeviceZToStorage() {}
   phoneDeviceZ() {
     /*
@@ -32,7 +32,6 @@ export class LayoutScreenStyle extends ZeplinStyle <StyleProps> {
     */
     const tabletZ = new WZeplinConverter('ipad');
     return tabletZ;
-    
   }
   desktopDeviceZ() {
     /*
@@ -114,7 +113,7 @@ export class LayoutScreenStyle extends ZeplinStyle <StyleProps> {
     };
     return style;
   }
-  phoneStylesLandscape () {
+  phoneStylesLandscape() {
     const widthFullScreen = 800;
     const rectangleGreen = this.deviceZ.getBox(widthFullScreen, 48);
     const rectangleOrange = this.deviceZ.getBox(widthFullScreen, 48);
@@ -186,7 +185,7 @@ export class LayoutScreenStyle extends ZeplinStyle <StyleProps> {
     };
     return style;
   }
-  tabletStylesPortrait () {
+  tabletStylesPortrait() {
     const widthFullScreen = 768;
     const rectangleGreen = this.deviceZ.getBox(widthFullScreen, 48);
     const rectangleOrange = this.deviceZ.getBox(widthFullScreen, 48);
@@ -258,7 +257,7 @@ export class LayoutScreenStyle extends ZeplinStyle <StyleProps> {
     };
     return style;
   }
-  tabletStylesLandscape () {
+  tabletStylesLandscape() {
     const widthFullScreen = 1024;
     const rectangleGreen = this.deviceZ.getBox(widthFullScreen, 48);
     const rectangleOrange = this.deviceZ.getBox(widthFullScreen, 48);
@@ -340,20 +339,20 @@ export class LayoutScreenStyle extends ZeplinStyle <StyleProps> {
     const style: StyleProps = {
       rectangleGreen: {
         width: this.deviceZ.getWidth(widthFullScreen) + 'px',
-        height:  this.deviceZ.getHeight(48, true) + 'px',
+        height: this.deviceZ.getHeight(48, true) + 'px',
       },
       rectangleOrange: {
         width: this.deviceZ.getWidth(widthFullScreen) + 'px',
-        height:  this.deviceZ.getHeight(48, true) + 'px',
+        height: this.deviceZ.getHeight(48, true) + 'px',
       },
       rectangleWhite: {
         width: this.deviceZ.getWidth(widthFullScreen) + 'px',
-        height:  this.deviceZ.getHeight(80, true) + 'px',
+        height: this.deviceZ.getHeight(80, true) + 'px',
         fontSize: this.deviceZ.getHeight(32, true) + 'px',
       },
       rectangleBigBlack: {
         width: this.deviceZ.getWidth(widthFullScreen) + 'px',
-        height:  this.deviceZ.getHeight(96, true) + 'px',
+        height: this.deviceZ.getHeight(96, true) + 'px',
         marginBottom: this.deviceZ.getHeight(110, true) + 'px',
       },
       rectanglesGray: {
