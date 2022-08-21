@@ -1,0 +1,20 @@
+{
+  "name": "ts-web-zeplin-converter",
+  "version": "1.0.0",
+  "description": "Typescript Web Zeplin Design and Dimensions Converter",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nikolovnikos/ts-web-zeplin-converter.git"
+  },
+  "keywords": ["zeplin", "dimensions", "converter", "typescript"],
+  "author": "nikichanko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nikolovnikos/ts-web-zeplin-converter/issues"
+  },
+  "homepage": "https://github.com/nikolovnikos/ts-web-zeplin-converter#readme"
+}
