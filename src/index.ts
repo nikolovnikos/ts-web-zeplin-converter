@@ -1,13 +1,7 @@
 import { ZeplinStyle } from './ZeplinStyle';
-
 import { WZeplinConverter } from './WZeplinConverter';
-
 import { WZeplinEventListener } from './WZeplinEventListener';
+import { deviceModel, Orientation, deviceType, WithRequiredProperty, ZeplinWebEventDetails } from './types';
 
-import { Properties } from 'csstype';
-
-import { deviceModel, Orientation, deviceType, WithRequiredProperty } from './types';
-
-export type { deviceModel, Orientation, deviceType, WithRequiredProperty, Properties };
-
+export { deviceModel, Orientation, deviceType, WithRequiredProperty, ZeplinWebEventDetails };
 export { ZeplinStyle, WZeplinConverter, WZeplinEventListener };
