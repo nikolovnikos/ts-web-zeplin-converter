@@ -1,4 +1,4 @@
-import { Orientation, deviceModel, deviceType } from './types';
+import { Orientation, deviceModel } from './types';
 
 interface DeviceDimZ {
   widthP: number;

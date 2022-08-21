@@ -1,10 +1,5 @@
-import { Orientation, deviceType } from './types';
+import { Orientation, deviceType, ZeplinWebEventDetails } from './types';
 
-interface ZeplinWebEventDetails {
-  width: number;
-  orientation: Orientation;
-  deviceType: deviceType;
-}
 
 const TABLET_MAX_WIDTH_SIZE = 1133;
 const getDeviceByUserAgent = (): deviceType => {
@@ -59,6 +54,7 @@ export class WZeplinEventListener {
   // protected width: number;
   orientation: Orientation;
   private listener: any;
+  private event: any;
 
   constructor() {
     this.deviceType = getDeviceType();
@@ -82,7 +78,62 @@ export class WZeplinEventListener {
 
   removeListener = () => {
     document.removeEventListener('zeplin', this.listener, false);
+    window.removeEventListener('resize', this.handleResize, false);
+    window.removeEventListener('orientationchange', this.handleResize, false);
     document.body.removeAttribute('zeplinEventAttached');
+  };
+
+  private handleOrienationChangeEvent = (e: any) => {
+    // console.log(event.target.screen.orientation)
+    const { type } = e.target.screen.orientation;
+
+    const width = document.body.clientWidth;
+    let deviceT = this.deviceType;
+    let orientation = this.orientation;
+    const deviceByUserAgent = getDeviceByUserAgent();
+    if (deviceByUserAgent === 'desktop' && width > TABLET_MAX_WIDTH_SIZE) {
+      deviceT = 'desktop';
+    }
+    if (type.indexOf('landscape') !== -1) {
+      orientation = 'landscape';
+    } else {
+      orientation = 'portrait';
+    }
+    document.dispatchEvent(
+      this.event({
+        width,
+        orientation,
+        deviceType: deviceT,
+      }),
+    );
+    this.deviceType = deviceT;
+    // this.width = width;
+    this.orientation = orientation;
+  };
+
+  private handleResize = () => {
+    // console.log(document.body.clientWidth);
+    const width = document.body.clientWidth;
+    let deviceT = this.deviceType;
+    let orientation = this.orientation;
+    const deviceByUserAgent = getDeviceByUserAgent();
+    if (deviceByUserAgent === 'desktop' && width > TABLET_MAX_WIDTH_SIZE) {
+      deviceT = 'desktop';
+    }
+    if (!window.onorientationchange) {
+      // Desktop Devices
+      orientation = getCurrentOrientation();
+    }
+    document.dispatchEvent(
+      this.event({
+        width,
+        orientation,
+        deviceType: deviceT,
+      }),
+    );
+    this.deviceType = deviceT;
+    // this.width = width;
+    this.orientation = orientation;
   };
 
   private init = () => {
@@ -90,69 +141,16 @@ export class WZeplinEventListener {
     if (zeplinEventAttached === 'true') {
       return;
     }
-    const event = (data?: ZeplinWebEventDetails) =>
+    this.event = (data?: ZeplinWebEventDetails) =>
       new CustomEvent('zeplin', {
         detail: data,
       });
     document.body.setAttribute('zeplinEventAttached', 'true');
 
-    const handleOrienationChangeEvent = (e: any) => {
-      // console.log(event.target.screen.orientation)
-      const { type } = e.target.screen.orientation;
-
-      const width = document.body.clientWidth;
-      let deviceT = this.deviceType;
-      let orientation = this.orientation;
-      const deviceByUserAgent = getDeviceByUserAgent();
-      if (deviceByUserAgent === 'desktop' && width > TABLET_MAX_WIDTH_SIZE) {
-        deviceT = 'desktop';
-      }
-      if (type.indexOf('landscape') !== -1) {
-        orientation = 'landscape';
-      } else {
-        orientation = 'portrait';
-      }
-      document.dispatchEvent(
-        event({
-          width,
-          orientation,
-          deviceType: deviceT,
-        }),
-      );
-      this.deviceType = deviceT;
-      // this.width = width;
-      this.orientation = orientation;
-    };
-
-    const handleResize = () => {
-      // console.log(document.body.clientWidth);
-      const width = document.body.clientWidth;
-      let deviceT = this.deviceType;
-      let orientation = this.orientation;
-      const deviceByUserAgent = getDeviceByUserAgent();
-      if (deviceByUserAgent === 'desktop' && width > TABLET_MAX_WIDTH_SIZE) {
-        deviceT = 'desktop';
-      }
-      if (!window.onorientationchange) {
-        // Desktop Devices
-        orientation = getCurrentOrientation();
-      }
-      document.dispatchEvent(
-        event({
-          width,
-          orientation,
-          deviceType: deviceT,
-        }),
-      );
-      this.deviceType = deviceT;
-      // this.width = width;
-      this.orientation = orientation;
-    };
-
-    window.addEventListener('resize', handleResize, true);
+    window.addEventListener('resize', this.handleResize, false);
     if (window.onorientationchange) {
       // Only on mobile devices
-      window.addEventListener('orientationchange', handleOrienationChangeEvent);
+      window.addEventListener('orientationchange', this.handleOrienationChangeEvent);
     }
   };
 }

@@ -1,18 +1,64 @@
-import { WithRequiredProperty, Properties, ZeplinStyle, WZeplinConverter } from '../index';
+import { ZeplinStyle } from '../ZeplinStyle';
+import { WZeplinConverter } from '../WZeplinConverter';
 
 interface StyleProps {
-  rectangleGreen: WithRequiredProperty<Properties, 'width' | 'height'>;
-  rectangleOrange: WithRequiredProperty<Properties, 'width' | 'height'>;
-  rectangleWhite: WithRequiredProperty<Properties, 'width' | 'height' | 'fontSize'>;
-  rectangleBigBlack: WithRequiredProperty<Properties, 'width' | 'height' | 'marginBottom'>;
-  rectanglesGray: WithRequiredProperty<Properties, 'width' | 'height'>;
-  rectangleDarkGray: WithRequiredProperty<Properties, 'width' | 'height' | 'marginTop' | 'fontSize'>;
-  rectanglesColor: WithRequiredProperty<Properties, 'width' | 'paddingTop' | 'marginTop' | 'paddingBottom'>;
-  rectangleGray1: WithRequiredProperty<Properties, 'width' | 'fontSize' | 'paddingLeft' | 'paddingTop'>;
-  rectangleGray2: WithRequiredProperty<Properties, 'width'>;
-  rectangleCian: WithRequiredProperty<Properties, 'width' | 'height'>;
-  rectangleBlue: WithRequiredProperty<Properties, 'width' | 'height' | 'marginLeft' | 'marginRight'>;
-  rectanglePing: WithRequiredProperty<Properties, 'width' | 'height'>;
+  rectangleGreen: {
+    width: string;
+    height: string;
+  };
+  rectangleOrange: {
+    width: string;
+    height: string;
+  };
+  rectangleWhite: {
+    width: string;
+    height: string;
+    fontSize: string;
+  };
+  rectangleBigBlack: {
+    width: string;
+    height: string;
+    marginBottom: string;
+  };
+  rectanglesGray: {
+    width: string;
+    height: string;
+  };
+  rectangleDarkGray: {
+    width: string;
+    height: string;
+    marginTop: string;
+    fontSize: string;
+  };
+  rectanglesColor: {
+    width: string;
+    paddingTop: string;
+    paddingBottom: string;
+    marginTop: string;
+  };
+  rectangleGray1: {
+    width: string;
+    fontSize: string;
+    paddingLeft: string;
+    paddingTop: string;
+  };
+  rectangleGray2: {
+    width: string;
+  };
+  rectangleCian: {
+    width: string;
+    height: string;
+  };
+  rectangleBlue: {
+    width: string;
+    height: string;
+    marginLeft: string;
+    marginRight: string;
+  };
+  rectanglePing: {
+    width: string;
+    height: string;
+  };
 }
 
 export class LayoutScreenStyle extends ZeplinStyle<StyleProps> {

@@ -1,5 +1,5 @@
-import { ZeplinConverter } from './ZeplinConverter';
 import { deviceModel, Orientation } from './types';
+import { ZeplinConverter } from './ZeplinConverter';
 
 export class WZeplinConverter extends ZeplinConverter {
   constructor(deviceM: deviceModel, orientation: Orientation = 'portrait') {
