@@ -1,8 +1,8 @@
-# node.js
-#
+# node modules
 node_modules/
-npm-debug.log
-yarn-error.log
 
 # Local History plugin
 .history/
+
+# Build folder
+/lib
