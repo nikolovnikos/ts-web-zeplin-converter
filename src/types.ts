@@ -12,4 +12,4 @@ export interface ZeplinWebEventDetails {
   deviceType: deviceType;
 }
 
-export type devicesZModels = { [P in deviceType]: deviceModel }
+export type devicesZModels = { [P in deviceType]: deviceModel };

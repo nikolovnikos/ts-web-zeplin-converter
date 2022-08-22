@@ -4,7 +4,7 @@
 
 import { LayoutScreenStyle } from './LayoutScreenStyle';
 import { devicesZModels } from '../types';
-import { setDeviceDimensions, mockDevicesDim, mockStyles} from './mocks';
+import { setDeviceDimensions, mockDevicesDim, mockStyles } from './mocks';
 
 const deviceZM: devicesZModels = { phone: 'iphone11', tablet: 'ipad', desktop: 'desktop1440' };
 test('LayoutScreenStyle iphone11_P', () => {

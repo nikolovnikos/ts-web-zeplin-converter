@@ -7,7 +7,7 @@ export abstract class ZeplinStyle<T> {
   protected deviceZ: WZeplinConverter;
 
   /**
-   * 
+   *
    * @param {deviceType} deviceT current client device type
    * @param {devicesZModels} devicesZ models of devices used in Zeplin Designs
    *
@@ -31,7 +31,7 @@ export abstract class ZeplinStyle<T> {
   }
 
   private getDeviceZStorage(): WZeplinConverter | null {
-    const deviceModel = this.devicesZModels[this.deviceType]; 
+    const deviceModel = this.devicesZModels[this.deviceType];
     const device = global[`zeplin_${deviceModel}`];
     if (device instanceof WZeplinConverter) {
       return device;

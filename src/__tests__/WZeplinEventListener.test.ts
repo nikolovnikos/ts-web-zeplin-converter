@@ -11,7 +11,7 @@ test('iphone11_L', () => {
   const lisenter = new WZeplinEventListener();
   const callBack = (options: ZeplinWebEventDetails) => {
     expect(options).toEqual({ width: 800, orientation: 'landscape', deviceType: 'phone' });
-  }
+  };
   lisenter.addListener(callBack);
   setOrientation('landscape');
   setDeviceDimensions(mockDevicesDim.iphone11_L);
@@ -26,7 +26,7 @@ test('ipadiOS_L', () => {
   const lisenter = new WZeplinEventListener();
   const callBack = (options: ZeplinWebEventDetails) => {
     expect(options).toEqual({ width: 1024, orientation: 'landscape', deviceType: 'tablet' });
-  }
+  };
   lisenter.addListener(callBack);
   setOrientation('landscape');
   setDeviceDimensions(mockDevicesDim.ipad_L);
@@ -41,7 +41,7 @@ test('desktop', () => {
   const lisenter = new WZeplinEventListener();
   const callBack = (options: ZeplinWebEventDetails) => {
     expect(options).toEqual({ width: 1440, orientation: 'landscape', deviceType: 'desktop' });
-  }
+  };
   lisenter.addListener(callBack);
   setOrientation('landscape');
   setDeviceDimensions(mockDevicesDim.desktop1440);

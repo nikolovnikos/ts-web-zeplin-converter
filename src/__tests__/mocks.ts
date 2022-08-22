@@ -1,4 +1,4 @@
-import { Orientation } from "../types";
+import { Orientation } from '../types';
 
 export const setDeviceDimensions = (dim: { width: number; height: number }) => {
   Object.defineProperty(document.body, 'clientWidth', { writable: true, configurable: true, value: dim.width });
@@ -6,20 +6,29 @@ export const setDeviceDimensions = (dim: { width: number; height: number }) => {
 };
 
 export const setOrientation = (orientation: Orientation) => {
-  Object.defineProperty(window.screen, 'orientation', {writable: true, configurable: true, value: { type: orientation }});
-}
+  Object.defineProperty(window.screen, 'orientation', {
+    writable: true,
+    configurable: true,
+    value: { type: orientation },
+  });
+};
 
 export const setUserAgent = (userAgent: string) => {
-  Object.defineProperty(navigator, 'userAgent', {writable: true, configurable: true, value: userAgent});
-}
+  Object.defineProperty(navigator, 'userAgent', { writable: true, configurable: true, value: userAgent });
+};
 
 export const userAgents = {
-  phoneiOS: 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_1 like Mac OS X) AppleWebKit/603.1.30 (KHTML, like Gecko) Version/10.0 Mobile/14E304 Safari/602.1',
-  phoneAndroid: 'Mozilla/5.0 (Linux; U; Android 4.4.2; en-us; SCH-I535 Build/KOT49H) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
-  tabletSamTabA: 'Mozilla/5.0 (Linux; Android 5.0.2; SAMSUNG SM-T550 Build/LRX22G) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/3.3 Chrome/38.0.2125.102 Safari/537.36',
-  ipadiOS: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0 Safari/605.1.15',
-  macSafari: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_2) AppleWebKit/601.3.9 (KHTML, like Gecko) Version/9.0.2 Safari/601.3.9',
-}
+  phoneiOS:
+    'Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_1 like Mac OS X) AppleWebKit/603.1.30 (KHTML, like Gecko) Version/10.0 Mobile/14E304 Safari/602.1',
+  phoneAndroid:
+    'Mozilla/5.0 (Linux; U; Android 4.4.2; en-us; SCH-I535 Build/KOT49H) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
+  tabletSamTabA:
+    'Mozilla/5.0 (Linux; Android 5.0.2; SAMSUNG SM-T550 Build/LRX22G) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/3.3 Chrome/38.0.2125.102 Safari/537.36',
+  ipadiOS:
+    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0 Safari/605.1.15',
+  macSafari:
+    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_2) AppleWebKit/601.3.9 (KHTML, like Gecko) Version/9.0.2 Safari/601.3.9',
+};
 
 export const mockDevicesDim = {
   iphoneSE_P: { width: 375, height: 667 },
@@ -30,9 +39,8 @@ export const mockDevicesDim = {
   ipad_L: { width: 1024, height: 768 },
   iphone13ProMax_P: { width: 428, height: 845 },
   iphone13ProMax_L: { width: 832, height: 407 },
-  desktop1440: {width: 1440, height: 1024 },
+  desktop1440: { width: 1440, height: 1024 },
 };
-
 
 export const mockStyles = {
   iphoneSE_P: {
@@ -332,4 +340,3 @@ export const mockStyles = {
     rectanglePing: { width: '174.72px', height: '108.16px' },
   },
 };
-

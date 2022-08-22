@@ -1,6 +1,5 @@
 import { Orientation, deviceType, ZeplinWebEventDetails } from './types';
 
-
 const TABLET_MAX_WIDTH_SIZE = 1133;
 const getDeviceByUserAgent = (): deviceType => {
   const ua = navigator.userAgent;
@@ -55,11 +54,11 @@ export class WZeplinEventListener {
   private event: any;
 
   /**
-   * 
+   *
    * Get and set current device type and orientation;
    * Append window.addEventListener resize and orientationchange
-   * 
-  */
+   *
+   */
   constructor() {
     this.deviceType = getDeviceType();
     this.orientation = getCurrentOrientation();
@@ -67,12 +66,12 @@ export class WZeplinEventListener {
   }
 
   /**
-   * 
+   *
    * add zeplin listener to document
    * @param {void} callBack function when on zeplin listener is trigged
-   **Syntax**: `callBack({ width: number, orientation: Orientation, deviceType: deviceType})`
-   * 
-  */
+   * *Syntax**: `callBack({ width: number, orientation: Orientation, deviceType: deviceType})`
+   *
+   */
   addListener = (callBack: (options: ZeplinWebEventDetails) => void) => {
     this.listener = (e: CustomEvent) => {
       const { detail } = e;
@@ -87,10 +86,10 @@ export class WZeplinEventListener {
   };
 
   /**
-   * 
+   *
    * remove all attached listeners
-   * 
-  */
+   *
+   */
   removeListener = () => {
     document.removeEventListener('zeplin', this.listener, false);
     window.removeEventListener('resize', this.handleResize, false);
