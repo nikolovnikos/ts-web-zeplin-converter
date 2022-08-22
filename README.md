@@ -20,7 +20,7 @@ interface StyleProps {
   zeplin_tagName: {
     width: string;
     height: string;
-  };
+  }
 }
 
 class LayoutScreenStyle extends ZeplinStyle<StyleProps> {
