@@ -1,6 +1,7 @@
 # ts-web-zeplin-converter
 
-Typescript Web Zeplin Design and Dimensions Converter
+Typescript Web Zeplin Design and Dimensions Converter.
+The module takes Zeplin real dimensions (with, height, font size, margin, etc.) of elements created for specific devices and orientation and then calculate them proportionally or pixel perfect for the current running device.
 
 ## Installation
 
@@ -15,7 +16,10 @@ import { WZeplinEventListener, ZeplinWebEventDetails, devicesZModels, ZeplinStyl
 
 ## Examples of use
 
+index.ts
 ```javascript
+import { WZeplinEventListener, ZeplinWebEventDetails, devicesZModels, ZeplinStyle  } from 'web-zeplin-converter';
+
 interface StyleProps {
   zeplin_tagName: {
     width: string;
@@ -72,6 +76,13 @@ callBackListener({
   deviceType: listener.deviceType,
 });
 listener.addListener(callBackListener);
+```
+All you need is to use some webpack to compile index.ts to index.js and include in the index.html file.
+Create html element with tag name="zeplin_tagName"
+index.html
+```html
+  <div name="zeplin_tagName"></div>
+  <script type="module" src="/dist/index.js"></script>
 ```
 
 ## Test with jest
