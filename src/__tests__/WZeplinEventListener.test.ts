@@ -17,7 +17,6 @@ test('iphone11_L', () => {
   setDeviceDimensions(mockDevicesDim.iphone11_L);
   // Trigger the window resize event.
   global.dispatchEvent(new Event('resize'));
-  // await new Promise((r) => setTimeout(r, 50));
   lisenter.removeListener();
 });
 
@@ -33,7 +32,6 @@ test('ipadiOS_L', () => {
   setDeviceDimensions(mockDevicesDim.ipad_L);
   // Trigger the window resize event.
   global.dispatchEvent(new Event('resize'));
-  // await new Promise((r) => setTimeout(r, 50));
   lisenter.removeListener();
 });
 
@@ -49,6 +47,5 @@ test('desktop', () => {
   setDeviceDimensions(mockDevicesDim.desktop1440);
   // Trigger the window resize event.
   global.dispatchEvent(new Event('resize'));
-  // await new Promise((r) => setTimeout(r, 50));
   lisenter.removeListener();
 });

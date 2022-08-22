@@ -45,24 +45,34 @@ const getCurrentOrientation = (): Orientation => {
     // Landscape Mode
     return landscape;
   }
-  // console.log(window.orientation);
   return portrait;
 };
 
 export class WZeplinEventListener {
   deviceType: deviceType;
-  // protected width: number;
   orientation: Orientation;
   private listener: any;
   private event: any;
 
+  /**
+   * 
+   * Get and set current device type and orientation;
+   * Append window.addEventListener resize and orientationchange
+   * 
+  */
   constructor() {
     this.deviceType = getDeviceType();
-    // this.width = document.body.clientWidth;
     this.orientation = getCurrentOrientation();
     this.init();
   }
 
+  /**
+   * 
+   * add zeplin listener to document
+   * @param {void} callBack function when on zeplin listener is trigged
+   **Syntax**: `callBack({ width: number, orientation: Orientation, deviceType: deviceType})`
+   * 
+  */
   addListener = (callBack: (options: ZeplinWebEventDetails) => void) => {
     this.listener = (e: CustomEvent) => {
       const { detail } = e;
@@ -76,6 +86,11 @@ export class WZeplinEventListener {
     document.addEventListener('zeplin', this.listener, false);
   };
 
+  /**
+   * 
+   * remove all attached listeners
+   * 
+  */
   removeListener = () => {
     document.removeEventListener('zeplin', this.listener, false);
     window.removeEventListener('resize', this.handleResize, false);
@@ -84,7 +99,6 @@ export class WZeplinEventListener {
   };
 
   private handleOrienationChangeEvent = (e: any) => {
-    // console.log(event.target.screen.orientation)
     const { type } = e.target.screen.orientation;
 
     const width = document.body.clientWidth;
@@ -107,12 +121,10 @@ export class WZeplinEventListener {
       }),
     );
     this.deviceType = deviceT;
-    // this.width = width;
     this.orientation = orientation;
   };
 
   private handleResize = () => {
-    // console.log(document.body.clientWidth);
     const width = document.body.clientWidth;
     let deviceT = this.deviceType;
     let orientation = this.orientation;
@@ -132,7 +144,6 @@ export class WZeplinEventListener {
       }),
     );
     this.deviceType = deviceT;
-    // this.width = width;
     this.orientation = orientation;
   };
 

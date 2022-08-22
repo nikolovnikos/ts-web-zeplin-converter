@@ -36,7 +36,6 @@ const devicesDimensionsZ: devicesDim = {
 export abstract class ZeplinConverter {
   private deviceDimZ: DeviceDimZ;
   private orientation: Orientation;
-  deviceModel: deviceModel;
 
   protected abstract getWindowWidth(): number;
   protected abstract getWindowHeight(): number;
@@ -48,7 +47,6 @@ export abstract class ZeplinConverter {
    */
   constructor(deviceM: deviceModel, orientation: Orientation = 'portrait') {
     this.deviceDimZ = devicesDimensionsZ[deviceM];
-    this.deviceModel = deviceM;
     this.orientation = orientation;
   }
 

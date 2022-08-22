@@ -1,5 +1,4 @@
 import { ZeplinStyle } from '../ZeplinStyle';
-import { WZeplinConverter } from '../WZeplinConverter';
 
 interface StyleProps {
   rectangleGreen: {
@@ -62,31 +61,6 @@ interface StyleProps {
 }
 
 export class LayoutScreenStyle extends ZeplinStyle<StyleProps> {
-  setDeviceZToStorage() {}
-  phoneDeviceZ() {
-    /*
-      Mobile
-      https://app.zeplin.io/project/61a8a9480bf3cf8df5b66ab2/screen/61fd440cbad0c89b446ee85d
-    */
-    const phoneZ = new WZeplinConverter('iphone11');
-    return phoneZ;
-  }
-  tabletDeviceZ() {
-    /*
-      Tablet
-      https://app.zeplin.io/project/61a8a9480bf3cf8df5b66ab2/screen/620a3678a46278aabb5de991
-    */
-    const tabletZ = new WZeplinConverter('ipad');
-    return tabletZ;
-  }
-  desktopDeviceZ() {
-    /*
-      Desktop
-      https://app.zeplin.io/project/61a8a9480bf3cf8df5b66ab2/screen/620a368451206fa8e5757617
-    */
-    const desktopZ = new WZeplinConverter('desktop1440');
-    return desktopZ;
-  }
   phoneStylesPortrait() {
     const widthFullScreen = 414;
     const rectangleGreen = this.deviceZ.getBox(widthFullScreen, 48);

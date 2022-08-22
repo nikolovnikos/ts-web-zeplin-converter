@@ -11,3 +11,5 @@ export interface ZeplinWebEventDetails {
   orientation: Orientation;
   deviceType: deviceType;
 }
+
+export type devicesZModels = { [P in deviceType]: deviceModel }
