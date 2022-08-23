@@ -1,20 +1,20 @@
-import { deviceType, Orientation, devicesZModels } from './types';
+import { deviceType, Orientation, devicesZTypes } from './types';
 import { WZeplinConverter } from './WZeplinConverter';
 
 export abstract class ZeplinStyle<T> {
   private deviceType: deviceType;
-  private devicesZModels: devicesZModels;
+  private devicesZTypes: devicesZTypes;
   protected deviceZ: WZeplinConverter;
 
   /**
    *
    * @param {deviceType} deviceT current client device type
-   * @param {devicesZModels} devicesZ models of devices used in Zeplin Designs
+   * @param {devicesZTypes} devicesZ models of devices used in Zeplin Designs
    *
    */
-  constructor(deviceT: deviceType, devicesZ: devicesZModels) {
+  constructor(deviceT: deviceType, devicesZ: devicesZTypes) {
     this.deviceType = deviceT;
-    this.devicesZModels = devicesZ;
+    this.devicesZTypes = devicesZ;
     this.deviceZ = this.getDeviceZ();
     this.setDeviceZToStorage();
   }
@@ -26,13 +26,13 @@ export abstract class ZeplinStyle<T> {
   protected abstract desktopStylesLandscape(): T;
 
   private setDeviceZToStorage(): void {
-    const deviceModel = this.devicesZModels[this.deviceType];
-    global[`zeplin_${deviceModel}`] = this.deviceZ;
+    const deviceDimZ = this.devicesZTypes[this.deviceType];
+    global[`zeplin_${deviceDimZ.model}`] = this.deviceZ;
   }
 
   private getDeviceZStorage(): WZeplinConverter | null {
-    const deviceModel = this.devicesZModels[this.deviceType];
-    const device = global[`zeplin_${deviceModel}`];
+    const deviceDimZ = this.devicesZTypes[this.deviceType];
+    const device = global[`zeplin_${deviceDimZ.model}`];
     if (device instanceof WZeplinConverter) {
       return device;
     }
@@ -69,8 +69,8 @@ export abstract class ZeplinStyle<T> {
     if (deviceZ !== null) {
       return deviceZ;
     }
-    const deviceModel = this.devicesZModels[this.deviceType];
-    return new WZeplinConverter(deviceModel);
+    const deviceDimZ = this.devicesZTypes[this.deviceType];
+    return new WZeplinConverter(deviceDimZ);
   }
 
   /**

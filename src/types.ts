@@ -1,4 +1,3 @@
-export type deviceModel = 'iphone11' | 'ipad' | 'desktop1440';
 export type deviceType = 'phone' | 'tablet' | 'desktop';
 export type Orientation = 'portrait' | 'landscape';
 
@@ -12,4 +11,12 @@ export interface ZeplinWebEventDetails {
   deviceType: deviceType;
 }
 
-export type devicesZModels = { [P in deviceType]: deviceModel };
+export interface DeviceDimZ {
+  model: string,
+  widthP: number;
+  heightP: number;
+  widthL: number;
+  heightL: number;
+}
+
+export type devicesZTypes = { [P in deviceType]: DeviceDimZ };

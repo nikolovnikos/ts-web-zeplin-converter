@@ -30,6 +30,28 @@ export const userAgents = {
     'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_2) AppleWebKit/601.3.9 (KHTML, like Gecko) Version/9.0.2 Safari/601.3.9',
 };
 
+export const IPHONE11 = {
+  model: 'iphone11',
+  widthP: 414,
+  widthL: 800,
+  heightP: 896,
+  heightL: 400,
+};
+export const IPAD = {
+  model: 'ipad',
+  widthP: 768,
+  widthL: 1024,
+  heightP: 1024,
+  heightL: 768,
+};
+export const DESKTOP_1440 = {
+  model: 'dekstop1440',
+  widthP: 1440,
+  widthL: 1440,
+  heightP: 1024,
+  heightL: 1024,
+};
+
 export const mockDevicesDim = {
   iphoneSE_P: { width: 375, height: 667 },
   iphoneSE_L: { width: 667, height: 375 },
